@@ -4,8 +4,9 @@
     .image-container
       img(:src="result.artworkUrl100", alt="Result Image")
     .details
-      h3.name {{ result.name }}
-      p.released-date Released on {{ formattedDate(result.releasedDate) }}
+      h3.name {{ result.artistName }}
+      h4.collection(v-if="result.collectionName") {{ result.collectionName }}
+      p.released-date(v-if="result.releaseDate") Released on {{ formattedDate(result.releaseDate) }}
 </template>
 
 <script setup lang="ts">
@@ -17,13 +18,9 @@ defineProps({
 })
 
 function formattedDate(dateStr: string) {
-  if (!dateStr) {
-    return ''
-  }
-
   const date = new Date(dateStr)
   const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' }
-  return date.toLocaleDateString('en-US', options)
+  return date.toLocaleDateString('en-US', options) || ''
 }
 </script>
 
@@ -44,8 +41,6 @@ function formattedDate(dateStr: string) {
 }
 
 .image-container img {
-  width: 80px;
-  height: 80px;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -59,9 +54,14 @@ function formattedDate(dateStr: string) {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.collection {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #e466ef;
+}
 
 .released-date {
   font-size: 14px;
-  color: #666;
+  color: #6c6b6b;
 }
 </style>

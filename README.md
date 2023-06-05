@@ -1,25 +1,28 @@
-# comgy-challenge
+# iTunes Music Search App
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a solution for the Comgy code challenge for frontend engineers. It is a music search application built using Vue version 3, the composition API, Vite and TypeScript.
 
-## Recommended IDE Setup
+## Preview
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Image Description](./src/assets/images/preview.png)
 
-## Type Support for `.vue` Imports in TS
+## Functionalities
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+The application provides the following functionalities:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+- Music search bar: Users can enter the artist name, album name, or other search terms to find media.
+- API calls: The app makes three different API calls to the iTunes API, retrieving media of types Album, Artist, and Song.
+- Display properties: For each media type (Album, Artist, Song), the app displays the collectionName, artistName, and trackName properties, respectively.
+- Card display: The app presents cards with a preview image and information, such as artistName, collectionName, and releaseDate, for the last searched values.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Possible Improvements and Next Steps
 
-## Customize configuration
+If more time were available, the following improvements and next steps could be considered:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Use a state management library: Implement a store using Pinia or Vuex to store the last searched results. This would allow for persistent storage of data, preventing the cards from disappearing when the search is cleared.
+- Install SCSS preprocessor: Set up the SCSS preprocessor and use it to style the application. Organize the styles of the components in their respective modules or files for better maintainability.
+- Create Composables: If the application is expected to grow in the future, consider creating Composables to handle the fetch function across the app. This would promote code reuse and better organization.
+- Global plugin for formatting release date: Create a global plugin to format the release date, allowing it to be used throughout the app wherever necessary.
 
 ## Project Setup
 
@@ -33,20 +36,14 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Open your browser and visit `http://localhost:8080` to view the app.
 
-```sh
-npm run test:unit
-```
+## Conclusion
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+With this Vue3 Music Search App, you have a solution for the Comgy code challenge, showcasing the usage of Vue 3, the composition API, and TypeScript. Feel free to explore and improve upon the app by considering the mentioned suggestions and next steps. Happy coding!

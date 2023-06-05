@@ -5,7 +5,7 @@
   result-cards(:last-search-results="lastSearchResults")
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 import SearchBar from '@/components/SearchBar.vue'
 import ResultCards from '@/components/ResultCards.vue'

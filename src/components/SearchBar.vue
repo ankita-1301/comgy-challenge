@@ -1,11 +1,11 @@
 <template lang="pug">
 .search-bar
   .input-wrapper
-    img.icon-magnifier(src="./icons/icon-magnifier.png")
+    img.icon-magnifier(src="../assets/icons/icon-magnifier.png")
     input(type="search" placeholder="Search..." v-model="searchQuery" @input="handleSearch")
   ul.search-results
     .loading-spinner(v-if="isLoading")
-      img.loading-image(src="./icons/loading.svg")
+      img.loading-image(src="../assets/icons/loading.svg")
     .result-wrapper(v-else)
       template(v-if="searchResults.albums.length")
         .category-heading Albums
@@ -20,6 +20,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
+interface SearchResults {
+  albums: any[]
+  artists: any[]
+  songs: any[]
+}
 
 const searchQuery = ref('')
 
@@ -39,12 +45,6 @@ defineProps({
 })
 
 const emit = defineEmits(['perform-search'])
-
-interface SearchResults {
-  albums: any[]
-  artists: any[]
-  songs: any[]
-}
 
 function handleSearch() {
   emit('perform-search', searchQuery.value)
